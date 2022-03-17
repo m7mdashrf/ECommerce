@@ -1,1 +1,37 @@
-<p>product-list works!</p>
+<div class="mb-3">
+    <label for="productCatg" class="form-label">Category:</label>
+    <select class="form-control" name="catg" id="productCatg" [(ngModel)]="selectedCatID">
+    <option *ngFor="let i of catgList"  [value]="i.id">{{i.name}}</option>
+  </select>
+</div>
+<div>
+
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Av. Quantity</th>
+            <th scope="col">Price</th>
+            <th colspan="2">Buying </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of PrdList" [class.d-none]="i.categoryID==selectedCatID">
+
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td><img src="{{i.imgURL}}" class="img-fluid" style="width: 50px; height:50px;" alt=""></td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.price}}</td>
+            <td> <input #itemcount type="number" class="form-control"></td>
+            <td> <button type="button" class="btn btn-secondary" (click)="Buy(i.price, itemcount.value)"> Buy </button> </td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+<h1>Total Price {{totalPrice}}</h1>

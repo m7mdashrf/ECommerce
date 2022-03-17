@@ -9,6 +9,7 @@ import { OrderComponent } from './Components/order/order.component';
 import { HomeComponent } from './Components/home/home.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { ProductListComponent } from './Components/order/product-list/product-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductListComponent } from './Components/order/product-list/product-li
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
